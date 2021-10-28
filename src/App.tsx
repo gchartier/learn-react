@@ -4,6 +4,7 @@ import { QueryParamProvider } from 'use-query-params';
 
 import ExamplesPage from './pages/ExamplesPage';
 import CompositionalPatterns from './pages/CompositionalPatterns';
+import SlotMachinePage from './pages/SlotMachinePage';
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,9 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/compositional-patterns">
             <CompositionalPatterns />
+          </Route>
+          <Route path="/slots">
+            <SlotMachinePage />
           </Route>
           <Route path="/:segment">
             <ExamplesPage />
