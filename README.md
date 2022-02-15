@@ -62,6 +62,7 @@ These modules have been added on top of base `create-react-app` install. If you'
 | [fontawesome](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react) | Huge, standardized icon library with React integration. |
 | [framer-motion](https://www.framer.com/docs/)                                       | Animation library for React.                            |
 | [lodash](https://lodash.com/docs)                                                   | Modular Javascript utility libraray.                    |
+| [motion](https://motion.dev/guides/quick-start)                                     | Animation library for Javascript.                       |
 | [numeral](http://numeraljs.com)                                                     | Manipulate and format numbers in Javascript.            |
 | [react-hook-form](https://react-hook-form.com/get-started)                          | Flexible React hooks-based forms with validation.       |
 | [react-router](https://reactrouter.com/web/guides/quick-start)                      | Navigational components for React.                      |

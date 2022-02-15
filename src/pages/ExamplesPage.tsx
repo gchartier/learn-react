@@ -5,6 +5,7 @@ import useAxios from 'axios-hooks';
 import * as dateFns from 'date-fns';
 import * as FramerMotion from 'framer-motion';
 import * as FramerMotion3D from 'framer-motion-3d';
+import * as Motion from 'motion';
 import _ from 'lodash';
 import numeral from 'numeral';
 import React from 'react';
@@ -84,15 +85,84 @@ const IconExample: React.FC = () => {
 };
 
 // https://www.framer.com/docs/
-const MotionExample: React.FC = () => {
+const FramerMotionPropsExample: React.FC = () => {
   return (
     <UI.Box mb={8}>
       <UI.Heading size="md" mb={4}>
-        Working with animation
+        Working with Framer Motion props
       </UI.Heading>
       <MotionUI.Box
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
+        bg="green.300"
+        borderRadius="4px"
+        w="50px"
+        h="50px"
+        m={4}
+      />
+    </UI.Box>
+  );
+};
+
+// https://www.framer.com/docs/
+const FramerMotionHooksExample: React.FC = () => {
+  const animation = FramerMotion.useAnimation();
+
+  React.useEffect(() => {
+    animation.start({
+      rotate: 360,
+      transition: {
+        repeat: Infinity,
+        duration: 2,
+        ease: 'linear',
+      },
+    });
+    return () => {
+      animation.stop();
+    };
+  });
+
+  return (
+    <UI.Box mb={8}>
+      <UI.Heading size="md" mb={4}>
+        Working with Framer Motion hooks
+      </UI.Heading>
+      <MotionUI.Box
+        animate={animation}
+        bg="green.300"
+        borderRadius="4px"
+        w="50px"
+        h="50px"
+        m={4}
+      />
+    </UI.Box>
+  );
+};
+
+// https://motion.dev/guides/quick-start
+const MotionOneExample: React.FC = () => {
+  React.useEffect(() => {
+    const animation = Motion.animate(
+      '#box',
+      { rotate: 360 },
+      {
+        repeat: Infinity,
+        duration: 2,
+        easing: 'linear',
+      }
+    );
+    return () => {
+      animation.cancel();
+    };
+  });
+
+  return (
+    <UI.Box mb={8}>
+      <UI.Heading size="md" mb={4}>
+        Working with Motion One
+      </UI.Heading>
+      <UI.Box
+        id="box"
         bg="green.300"
         borderRadius="4px"
         w="50px"
@@ -664,7 +734,9 @@ const ExamplesPage: React.FC = () => {
     NumbersExample,
     DatesExample,
     IconExample,
-    MotionExample,
+    FramerMotionPropsExample,
+    FramerMotionHooksExample,
+    MotionOneExample,
     FramerMotion3DExample,
     ToastExample,
     LinksExample,

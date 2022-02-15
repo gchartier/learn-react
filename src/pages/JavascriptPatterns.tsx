@@ -50,6 +50,22 @@ const templateLiterals = () => {
   console.log(greeting); // "Hello Brent!"
 };
 
+const tagFunctions = () => {
+  console.log('tagFunctions');
+
+  // 'Tag Function'
+  const greet = (strings: TemplateStringsArray, name: string) => {
+    console.log(strings); // ['Hello ', '!']
+    console.log(name); // 'Brent'
+  };
+
+  const name = 'Brent';
+  // 'Tagged Template'
+  // Does not evaluate here like a Template Literal.
+  // Instead passes arguments into the Tag Function.
+  greet`Hello ${name}!`; // same as greet(['Hello ', '!'], name);
+};
+
 const destructuring = () => {
   console.log('destructuring');
 
@@ -71,6 +87,20 @@ const destructuringRest = () => {
 
   console.log(a); // 1;
   console.log(rest); // { b: 2, c: 3 };
+};
+
+const destructuringFunctionParameters = () => {
+  console.log('destructuringFunctionParameters');
+
+  const logObjectParams = ({ a, b, c, ...rest }: { [key: string]: any }) => {
+    console.log(a); // 1;
+    console.log(b); // 2;
+    console.log(c); // 3;
+    console.log(rest); // [4, 5];
+  };
+
+  const foo = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+  logObjectParams(foo);
 };
 
 const spreadIntoObject = () => {
@@ -155,7 +185,11 @@ const JavascriptPatternsPage: React.FC = () => {
           computedPropertyNames
         </UI.Button>
         <UI.Button onClick={templateLiterals}>templateLiterals</UI.Button>
+        <UI.Button onClick={tagFunctions}>tagFunctions</UI.Button>
         <UI.Button onClick={destructuring}>destructuring</UI.Button>
+        <UI.Button onClick={destructuringFunctionParameters}>
+          destructuringFunctionParameters
+        </UI.Button>
         <UI.Button onClick={destructuringRest}>destructuringRest</UI.Button>
         <UI.Button onClick={spreadIntoObject}>spreadIntoObject</UI.Button>
         <UI.Button onClick={spreadIntoJSX}>spreadIntoJSX</UI.Button>
