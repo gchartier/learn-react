@@ -1,15 +1,14 @@
-import { CSSProperties } from 'react';
-
 interface CarProps {
   id: string;
-  style: CSSProperties;
+  bottom: number;
+  left: number;
 }
 
-export function Car({ id, style }: CarProps) {
+export function Car({ id, bottom, left }: CarProps) {
   return (
     <svg
       id={id}
-      style={style}
+      style={{ position: 'absolute', zIndex: 10, bottom, left }}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 358.85 789.36"

@@ -5,12 +5,16 @@ import { QueryParamProvider } from 'use-query-params';
 import ExamplesPage from './pages/ExamplesPage';
 import CompositionalPatterns from './pages/CompositionalPatterns';
 import JavascriptPatterns from './pages/JavascriptPatterns';
+import { TraylorsOnly } from './pages/TraylorsOnly';
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <QueryParamProvider ReactRouterRoute={Route}>
         <Switch>
+          <Route path="/TraylorsOnly">
+            <TraylorsOnly />
+          </Route>
           <Route path="/compositional-patterns">
             <CompositionalPatterns />
           </Route>
